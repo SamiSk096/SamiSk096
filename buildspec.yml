@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+  post_build:
+    commands:
+    - echo building the sampleservlet web application
+    - jar -cvf target/servletsample.war META-INF/* WEB-INF/* *.html
+artifacts:
+  files:
+  - target/*.war
+  - appspec.yml
+  discard-paths: yes
